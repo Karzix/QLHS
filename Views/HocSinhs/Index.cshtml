@@ -17,17 +17,16 @@
     <select asp-items="ViewBag.LopHocId" name="LopHocId">
         <option></option>
     </select>
-
     <input type="submit" value="Tìm Kiếm"/>
 </form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MaSV)
+                @Html.ActionLink("Mã sinh viên","Index", new {sort = ViewBag.sortMaSV})
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HoVaTen)
+                @Html.ActionLink("Họ và tên","Index", new{sort = ViewBag.sortHoVaTen})
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LopHoc)
