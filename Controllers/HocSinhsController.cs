@@ -35,7 +35,7 @@ namespace WebApplication1.Controllers
                 ViewBag.LopHocId= LopHocId;
             }
             ViewData["LopHocId"] = new SelectList(_context.LopHoc, "Id", "TenLop");
-            //xap sep
+            //sap xep
             ViewBag.sortMaSV = String.IsNullOrEmpty(sort) ? "MaSV" : "";
             ViewBag.sortHoVaTen = String.IsNullOrEmpty(sort) ? "HoVaTen" : "";
             var listHocSinh = from hs in applicationDbContext select hs;
