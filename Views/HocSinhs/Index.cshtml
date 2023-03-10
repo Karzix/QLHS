@@ -4,9 +4,6 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <h1>Index</h1>
 
 <p>
@@ -20,22 +17,20 @@
         <option></option>
     </select>
     <input type="submit" value="Tìm Kiếm"/>
-    <br />
-    <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Sắp xếp
-        </button>
-        <ul class="dropdown-menu" role="menu">
-            <li><button class="btn">@Html.ActionLink("Mã sinh viên tăng dần","Index", new {sort = ViewBag.sortMaSV})</button></li>
-            <li><button class="btn">@Html.ActionLink("Mã sinh viên giảm dần","Index", new {sortdes = ViewBag.sortMaSVdes})</button></li>
-        </ul>
-    </div>
 </form>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.MaSV)
+                @if(ViewBag.sort=="MaSV"&& ViewBag.asc == "False")
+                {
+                    @Html.ActionLink("down","Index", new {sort = "MaSV", asc="True"})
+                }
+                else
+                {
+                    @Html.ActionLink("up","Index", new {sort = "MaSV", asc="False"})
+                }
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.HoVaTen)
