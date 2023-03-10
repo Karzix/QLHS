@@ -37,8 +37,8 @@ namespace WebApplication1.Controllers
             ViewData["LopHocId"] = new SelectList(_context.LopHoc, "Id", "TenLop");
             //sap xep
             ViewBag.sortMaSV = String.IsNullOrEmpty(sort) ? "MaSV" : "";
-
-            if(sort != null)
+            ViewBag.sortMaSVdes = String.IsNullOrEmpty(sortdes) ? "MaSV" : "";
+            if (sort != null)
             {
                 applicationDbContext = applicationDbContext.OrderBy(hs => hs.MaSV);
             }
