@@ -20,7 +20,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: HocSinhs
-        public async Task<IActionResult> Index(string? TenHS,Guid? LopHocId, string sort)
+        public async Task<IActionResult> Index(string? TenHS,Guid? LopHocId, string sort , string sortdes)
         {
             var applicationDbContext = _context.HocSinh.Include(h => h.LopHoc).AsQueryable();
             //tim kiem
@@ -37,18 +37,16 @@ namespace WebApplication1.Controllers
             ViewData["LopHocId"] = new SelectList(_context.LopHoc, "Id", "TenLop");
             //sap xep
             ViewBag.sortMaSV = String.IsNullOrEmpty(sort) ? "MaSV" : "";
-            ViewBag.sortHoVaTen = String.IsNullOrEmpty(sort) ? "HoVaTen" : "";
-            var listHocSinh = from hs in applicationDbContext select hs;
-            if(sort=="MaSV")
+
+            if(sort != null)
             {
                 applicationDbContext = applicationDbContext.OrderBy(hs => hs.MaSV);
             }
-			if (sort == "HoVaTen")
-			{
-
-				applicationDbContext = applicationDbContext.OrderBy(hs => hs.HoVaTen);
-			}
-			return View(await applicationDbContext.ToListAsync());
+            if (sortdes != null)
+            {
+                applicationDbContext = applicationDbContext.OrderByDescending(hs => hs.MaSV);
+            }
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: HocSinhs/Details/5
