@@ -34,6 +34,14 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.HoVaTen)
+                @if(ViewBag.sort=="HoVaTen" && ViewBag.asc == "False")
+                {
+                    @Html.ActionLink("down","Index", new {sort="HoVaTen",asc="True"})
+                }
+                else
+                {
+                    @Html.ActionLink("up","Index", new {sort = "HoVaTen", asc="False"})
+                }
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LopHoc)

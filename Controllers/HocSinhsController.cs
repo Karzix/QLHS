@@ -43,12 +43,22 @@ namespace WebApplication1.Controllers
                 switch (sort)
                 {
                     case "MaSV":
-                        if(asc=="False")
-                        applicationDbContext = applicationDbContext.OrderByDescending(hs => hs.MaSV);
-                        else
-                            applicationDbContext = applicationDbContext.OrderBy(hs => hs.MaSV);
-                        break;
-                    default:
+                        {
+                            if (asc == "False")
+                            { applicationDbContext = applicationDbContext.OrderByDescending(hs => hs.MaSV); }
+                            else
+                            { applicationDbContext = applicationDbContext.OrderBy(hs => hs.MaSV); }
+                            break;
+                        }
+                    case "HoVaTen":
+                        {
+                            if (asc == "False")
+                            { applicationDbContext = applicationDbContext.OrderByDescending(hs => hs.HoVaTen); }
+                            else
+                            { applicationDbContext = applicationDbContext.OrderBy(hs => hs.HoVaTen); }
+                            break;
+                        }
+                        default:
                         break;
                 }
                 
