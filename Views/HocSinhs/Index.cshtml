@@ -4,6 +4,9 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <h1>Index</h1>
 
 <p>
@@ -25,11 +28,12 @@
                 @Html.DisplayNameFor(model => model.MaSV)
                 @if(ViewBag.sort=="MaSV"&& ViewBag.asc == "False")
                 {
-                    @Html.ActionLink("down","Index", new {sort = "MaSV", asc="True"})
+                  @* @Html.ActionLink("down","Index", new {sort = "MaSV", asc="True"})*@
+                    @Html.ActionLink("","Index",new {sort = "MaSV", asc="True"},new { @class= "glyphicon glyphicon-arrow-down" })
                 }
                 else
                 {
-                    @Html.ActionLink("up","Index", new {sort = "MaSV", asc="False"})
+                    @Html.ActionLink("","Index", new {sort = "MaSV", asc="False"},new { @class= "glyphicon glyphicon-arrow-up" })
                 }
             </th>
             <th>
